@@ -1,6 +1,7 @@
 // ACTION TYPES
 const TOGGLE_CART = "cart/TOGGLE_CART";
 const ADD_TO_CART = "cart/ADD_TO_CART";
+const REMOVE_FROM_CART = "cart/REMOVE_FROM_CART";
 
 // ACTIONS
 export const toggleCart = (isOpen) => {
@@ -13,6 +14,13 @@ export const toggleCart = (isOpen) => {
 export const addToCart = (itemObj) => {
   return {
     type: ADD_TO_CART,
+    payload: itemObj
+  }
+}
+
+export const removeFromCart = (itemObj) => {
+  return {
+    type: REMOVE_FROM_CART,
     payload: itemObj
   }
 }
@@ -49,6 +57,20 @@ export default function reducer(state = {
           ...state.items,
           [id]: item
         }
+      }
+    }
+    case REMOVE_FROM_CART: {
+      const { id } = action.payload;
+      let item = state.items[id];
+      if (item.quantity > 1) {
+        item.quantity -= 1;
+      } else {
+        delete state.items[id]
+      }
+
+      return {
+        ...state,
+        items: { ...state.items }
       }
     }
       // Do the necessary things to add the item to the cart

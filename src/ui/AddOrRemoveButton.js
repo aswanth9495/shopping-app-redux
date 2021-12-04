@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../store/cart';
+import { addToCart, removeFromCart } from '../store/cart';
 
 function AddOrRemoveButton({
   item
@@ -21,6 +21,9 @@ function AddOrRemoveButton({
 
   /* Handlers start */
   function addStuff() { dispatch(addToCart(item)) }
+  function removeStuff() {
+    dispatch(removeFromCart(item));
+  }
   /* Handlers end */
 
   /* UI start */
@@ -39,7 +42,7 @@ function AddOrRemoveButton({
       <div className="add-remove-btn">
         <button
           className="btn btn-success"
-          onClick={() => { /* Home work to implement remove From Cart Action */}}
+          onClick={removeStuff}
         >
           -
         </button>
