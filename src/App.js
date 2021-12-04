@@ -6,6 +6,7 @@ import About from './pages/About';
 import Items from './pages/Items';
 import Navbar from './Navbar';
 import Cart from './ui/Cart';
+import Posts from './pages/Posts';
 
 // Home
 // About
@@ -19,6 +20,10 @@ function App() {
           <Route
             path="/"
             element={<Home />}
+          />
+          <Route
+            path="/posts"
+            element={<Posts />}
           />
           <Route path="about" element={<About />} />
           <Route path="items/:categoryId" element={<Items />} />

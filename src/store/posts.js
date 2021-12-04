@@ -4,6 +4,7 @@ export const getPosts = () => {
   return async (dispatch, getState) => {
     console.log(getState(), 'State values');
     let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    
     response = await response.json();
     if (response) {
       dispatch({ type: GET_POSTS, payload: response })

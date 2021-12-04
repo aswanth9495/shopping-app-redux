@@ -31,6 +31,10 @@ function Navbar(props) {
         className="navbar-item"
       > Home </Link>
       <Link 
+        to="/posts"
+        className="navbar-item"
+      > Posts </Link>
+      <Link 
         to="about"
         className="navbar-item"
       > About </Link>
